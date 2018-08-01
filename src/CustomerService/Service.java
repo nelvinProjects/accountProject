@@ -2,6 +2,7 @@ package CustomerService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,15 +30,13 @@ public class Service {
 
 	public String mapToJSON() {
 		Gson gson = new Gson();
-		String json = gson.toJson(customers);
-		return json;
+		return gson.toJson(customers);
 	}
 
-	public ArrayList<Account> findAccount(String fname) {
-		ArrayList<Account> values = new ArrayList<>();
+	public List<Account> findAccount(String fname) {
+		List<Account> values = new ArrayList<>();
 		for (Map.Entry<Integer, Account> each : customers.entrySet()) {
-			if (each.getValue().getFirstName().toLowerCase()
-					.equals(fname.toLowerCase())) {
+			if (each.getValue().getFirstName().equalsIgnoreCase(fname)) {
 				values.add(each.getValue());
 			}
 		}
