@@ -1,6 +1,9 @@
 package CustomerService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import com.google.gson.Gson;
 
@@ -28,5 +31,15 @@ public class Service {
 		Gson gson = new Gson();
 		String json = gson.toJson(customers);
 		return json;
+	}
+
+	public ArrayList<Account> findAccount(String fname) {
+		ArrayList<Account> values = new ArrayList<>();
+		for (Map.Entry<Integer, Account> each : customers.entrySet()) {
+			if (each.getValue().getFirstName().equals(fname)) {
+				values.add(each.getValue());
+			}
+		}
+		return values;
 	}
 }

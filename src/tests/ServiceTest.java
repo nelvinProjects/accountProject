@@ -48,7 +48,7 @@ public class ServiceTest {
 	@Test
 	public void findFirstName() {
 		service.addCustomer("Test", "Life", 9874);
-		assertEquals(2, service.findAccount("Test").size(), "Not equal size");
+		assertEquals(1, service.findAccount("Test").size(), "Not equal size");
 	}
 
 }
