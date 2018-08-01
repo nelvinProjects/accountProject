@@ -39,7 +39,8 @@ class AccountTest {
 
 	@Test
 	void testToString() {
-		assertEquals("Account No. 12345 First Name: Tom Last Name: Towns", account.toString(), "Not match");
+		assertEquals("Account No. 12345 First Name: Tom Last Name: Towns", 
+				account.toString(), "Not match");
 	}
 
 }

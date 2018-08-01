@@ -10,6 +10,7 @@ public class Main {
 		service.addCustomer("Bib", "Wood", 123324);
 		service.addCustomer("Nim", "Gray", 56465);
 		service.addCustomer("Tim", "Sill", 12544);
+		service.addCustomer("Tim", "Bill", 12544);
 		service.addCustomer("Jim", "Woon", 15623);
 		service.addCustomer("Nim", "Noon", 13544);
 		service.addCustomer("Sim", "Kin", 124354);
@@ -19,6 +20,9 @@ public class Main {
 		System.out.println(service.getCustomer(5).toString());
 
 		System.out.println(service.mapToJSON());
+		
+		System.out.println(service.findAccount("Tim"));
+		System.out.println(service.findAccount("Wood"));
 	}
 
 }

@@ -15,6 +15,7 @@ public class ServiceTest {
 		service = new Service();
 		service.addCustomer("Tester", "Jon", 524);
 		service.addCustomer("Test", "Life", 9874);
+		
 	}
 
 	@Test
@@ -22,7 +23,6 @@ public class ServiceTest {
 		assertEquals("Tester", service.getCustomer(1).getFirstName(), "Not Match");
 		assertEquals("Jon", service.getCustomer(1).getLastName(), "Not Match");
 		assertEquals(524, service.getCustomer(1).getAccountNumber(), "Not Match");
-
 	}
 
 	@Test
@@ -43,6 +43,12 @@ public class ServiceTest {
 				+ "\"accountNumber\":524},\"2\":{\"firstName\":\"Test\",\"lastName\":"
 				+ "\"Life\",\"accountNumber\":9874}}";
 		assertEquals(expected, service.mapToJSON(), "JSON Not match");
+	}
+	
+	@Test
+	public void findFirstName() {
+		service.addCustomer("Test", "Life", 9874);
+		assertEquals(2, service.findAccount("Test").size(), "Not equal size");
 	}
 
 }
