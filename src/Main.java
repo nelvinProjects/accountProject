@@ -23,6 +23,8 @@ public class Main {
 		
 		System.out.println(service.findAccount("Tim"));
 		System.out.println(service.findAccount("Wood"));
+		
+		System.out.println(service.findAccountNo("Tim"));
 	}
 
 }
