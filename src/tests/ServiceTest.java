@@ -15,7 +15,7 @@ public class ServiceTest {
 		service = new Service();
 		service.addCustomer("Tester", "Jon", 524);
 		service.addCustomer("Test", "Life", 9874);
-		
+
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class ServiceTest {
 
 	@Test
 	public void returnHaspMapTest() {
-		assertEquals(3, service.returnMap().size(), "Size not match");
+		assertEquals(2, service.returnMap().size(), "Size not match");
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class ServiceTest {
 		service.removeAccount(2);
 		assertEquals(null, service.getCustomer(2));
 	}
-	
+
 	@Test
 	public void mapToJSONTest() {
 		String expected = "{\"1\":{\"firstName\":\"Tester\",\"lastName\":\"Jon\","
@@ -44,11 +44,19 @@ public class ServiceTest {
 				+ "\"Life\",\"accountNumber\":9874}}";
 		assertEquals(expected, service.mapToJSON(), "JSON Not match");
 	}
-	
+
 	@Test
 	public void findFirstName() {
 		service.addCustomer("Test", "Life", 9874);
-		assertEquals(1, service.findAccount("Test").size(), "Not equal size");
+		assertEquals(2, service.findAccount("Test").size(), "Not equal size");
+	}
+
+	@Test
+	public void findNameNo() {
+		service.addCustomer("Jason", "Life", 9854);
+		service.addCustomer("Jason", "Fin", 854);
+		service.addCustomer("Jason", "Aim", 98);
+		assertEquals(3, service.findAccount("Jason").size(), "Not equal size");
 	}
 
 }
