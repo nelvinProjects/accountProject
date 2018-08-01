@@ -8,7 +8,7 @@ import java.util.Set;
 import com.google.gson.Gson;
 
 public class Service {
-	private static HashMap<Integer, Account> customers = new HashMap<>();
+	private HashMap<Integer, Account> customers = new HashMap<>();
 
 	public void addCustomer(String firstName, String lastName, int accountNo) {
 		int key = customers.size() + 1;
@@ -36,10 +36,15 @@ public class Service {
 	public ArrayList<Account> findAccount(String fname) {
 		ArrayList<Account> values = new ArrayList<>();
 		for (Map.Entry<Integer, Account> each : customers.entrySet()) {
-			if (each.getValue().getFirstName().equals(fname)) {
+			if (each.getValue().getFirstName().toLowerCase()
+					.equals(fname.toLowerCase())) {
 				values.add(each.getValue());
 			}
 		}
 		return values;
+	}
+	
+	public int findAccountNo(String fname) {
+		return findAccount(fname).size();	
 	}
 }
