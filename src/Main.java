@@ -18,6 +18,7 @@ public class Main {
 		System.out.println(service.getCustomer(3).toString());
 		System.out.println(service.getCustomer(5).toString());
 
+		System.out.println(service.mapToJSON());
 	}
 
 }
