@@ -5,11 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import CustomerService.Account;
+import customerService.Account;
 
 class AccountTest {
 
 	private Account account;
+	private String message = "Not Match";
 
 	@BeforeEach
 	public void setup() {
@@ -18,29 +19,28 @@ class AccountTest {
 
 	@Test
 	void testSetGetFirstName() {
-		assertEquals("Tom", account.getFirstName(), "Not match");
+		assertEquals("Tom", account.getFirstName(), message);
 		account.setFirstName("Tim");
-		assertEquals("Tim", account.getFirstName(), "Not match");
+		assertEquals("Tim", account.getFirstName(), message);
 	}
 
 	@Test
 	void testSetGetLastName() {
-		assertEquals("Towns", account.getLastName(), "Not match");
+		assertEquals("Towns", account.getLastName(), message);
 		account.setLastName("Wood");
-		assertEquals("Wood", account.getLastName(), "Not match");
+		assertEquals("Wood", account.getLastName(), message);
 	}
 
 	@Test
 	void testGetSetAccountNumber() {
-		assertEquals(12345, account.getAccountNumber(), "Not match");
+		assertEquals(12345, account.getAccountNumber(), message);
 		account.setAccountNumber(987);
-		assertEquals(987, account.getAccountNumber(), "Not match");
+		assertEquals(987, account.getAccountNumber(), message);
 	}
 
 	@Test
 	void testToString() {
-		assertEquals("Account No. 12345 First Name: Tom Last Name: Towns", 
-				account.toString(), "Not match");
+		assertEquals("Account No. 12345 First Name: Tom Last Name: Towns", account.toString(), message);
 	}
 
 }

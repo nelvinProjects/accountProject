@@ -1,7 +1,8 @@
-package CustomerService;
+package customerService;
 
 public class Account {
-	private String firstName, lastName;
+	private String firstName;
+	private String lastName;
 	private int accountNumber;
 
 	public Account(String firstName, String lastName, int accountNumber) {

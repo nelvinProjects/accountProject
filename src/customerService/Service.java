@@ -1,10 +1,9 @@
-package CustomerService;
+package customerService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.google.gson.Gson;
 
@@ -20,7 +19,7 @@ public class Service {
 		return customers.get(id);
 	}
 
-	public HashMap<Integer, Account> returnMap() {
+	public Map returnMap() {
 		return customers;
 	}
 

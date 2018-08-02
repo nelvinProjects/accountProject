@@ -5,10 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import CustomerService.Service;
+import customerService.Service;
 
 public class ServiceTest {
 	private Service service;
+	private String message = "Not Match";
+	private String duplicateName = "Jason";
 
 	@BeforeEach
 	public void setup() {
@@ -20,9 +22,9 @@ public class ServiceTest {
 
 	@Test
 	public void addGetCustomerTest() {
-		assertEquals("Tester", service.getCustomer(1).getFirstName(), "Not Match");
-		assertEquals("Jon", service.getCustomer(1).getLastName(), "Not Match");
-		assertEquals(524, service.getCustomer(1).getAccountNumber(), "Not Match");
+		assertEquals("Tester", service.getCustomer(1).getFirstName(), message);
+		assertEquals("Jon", service.getCustomer(1).getLastName(), message);
+		assertEquals(524, service.getCustomer(1).getAccountNumber(), message);
 	}
 
 	@Test
@@ -53,10 +55,10 @@ public class ServiceTest {
 
 	@Test
 	public void findNameNo() {
-		service.addCustomer("Jason", "Life", 9854);
-		service.addCustomer("Jason", "Fin", 854);
-		service.addCustomer("Jason", "Aim", 98);
-		assertEquals(3, service.findAccount("Jason").size(), "Not equal size");
+		service.addCustomer(duplicateName, "Life", 9854);
+		service.addCustomer(duplicateName, "Fin", 854);
+		service.addCustomer(duplicateName, "Aim", 98);
+		assertEquals(3, service.findAccount("jason").size(), "Not equal size");
 	}
 
 }

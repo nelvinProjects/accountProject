@@ -1,4 +1,5 @@
-import CustomerService.Service;
+package define;
+import customerService.Service;
 
 public class Main {
 
