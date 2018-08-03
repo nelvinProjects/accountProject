@@ -60,5 +60,18 @@ public class ServiceTest {
 		service.addCustomer(duplicateName, "Aim", 98);
 		assertEquals(3, service.findAccount("jason").size(), "Not equal size");
 	}
+	
+	@Test
+	public void updateNameTest() {
+		service.updateAccountName(1, "Tom", "Works");
+		assertEquals("Tom", service.getCustomer(1).getFirstName(), "Name not match");
+		assertEquals("Works", service.getCustomer(1).getLastName(), "Surname not match");
+	}
+	
+	@Test
+	public void updateAccountNoTest() {
+		service.updateAccountNumber(2, 4444);
+		assertEquals(4444, service.getCustomer(2).getAccountNumber(), "No. not match");
+	}
 
 }

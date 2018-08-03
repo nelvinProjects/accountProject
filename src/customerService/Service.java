@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.omg.PortableServer.ID_ASSIGNMENT_POLICY_ID;
+
 import com.google.gson.Gson;
 
 public class Service {
@@ -27,6 +29,15 @@ public class Service {
 		customers.remove(id);
 	}
 
+	public void updateAccountName(int id, String fname, String sname) {
+		customers.get(id).setFirstName(fname);
+		customers.get(id).setLastName(sname);;
+	}
+	
+	public void updateAccountNumber(int id, int accountNo) {
+		customers.get(id).setAccountNumber(accountNo);
+	}
+	
 	public String mapToJSON() {
 		Gson gson = new Gson();
 		return gson.toJson(customers);

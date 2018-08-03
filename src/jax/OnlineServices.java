@@ -25,7 +25,7 @@ public class OnlineServices {
 		service.addCustomer("Jam", "Town", 456);
 		service.addCustomer("Nq", "Rook", 667);
 	}
-
+	
 	@GET
 	@Path("/customers")
 	public String customer() {
@@ -34,7 +34,7 @@ public class OnlineServices {
 	}
 	
 	@GET
-	@Path("/customer/{id}")
+	@Path("customer/{id}")
 	public String getCustomer(@PathParam("id") int id) {
 		addCustomers();
 		return gson.toJson(service.getCustomer(id).toString());
@@ -42,8 +42,7 @@ public class OnlineServices {
 	
 	@GET
 //	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Path("/customer")
-//	@Path("/customer/{acno}/{fname}/{sname}")
+	@Path("/customer/{acno}/{fname}/{sname}")
 	public String addCustomer(@PathParam("acno") int acno, @PathParam("fname") String fname,
 			@PathParam("sname") String sname) {
 		addCustomers();
@@ -51,5 +50,29 @@ public class OnlineServices {
 		return service.mapToJSON();
 	}
 	
+	@GET
+	@Path("/updatename/{id}/{fname}/{sname}")
+	public String updateName(@PathParam("id") int id, @PathParam("fname") String fname,
+			@PathParam("sname") String sname) {
+		addCustomers();
+		service.updateAccountName(id, fname, sname);
+		return service.mapToJSON();
+	}
+	
+	@GET
+	@Path("/updateacno/{id}/{accountno}")
+	public String updateAccountNo(@PathParam("accountno") int acno, @PathParam("id") int id) {
+		addCustomers();
+		service.updateAccountNumber(id, acno);
+		return service.mapToJSON();
+	}
+	
+	@GET
+	@Path("/delete/{id}")
+	public String deleteAcc(@PathParam("id") int id) {
+		addCustomers();
+		service.removeAccount(id);
+		return service.mapToJSON();
+	}
 	
 }
