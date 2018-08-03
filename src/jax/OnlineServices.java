@@ -5,6 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 
@@ -75,4 +76,9 @@ public class OnlineServices {
 		return service.mapToJSON();
 	}
 	
+	@GET
+	@Path("/success")
+	public Response successSend() {
+		return Response.ok().build();
+	}
 }
